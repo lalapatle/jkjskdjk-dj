@@ -22,6 +22,13 @@ pipeline {
             bat label: 'Project packaging', script: '''mvn package'''
         }
     }  
+    
+     stage('Jacoco Coverage Report') {
+            steps{
+                    jacoco()
+        }
+    }
+       
     stage('SonarQube'){
         steps{
                 bat label: '', script: '''mvn sonar:sonar \
